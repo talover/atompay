@@ -1,0 +1,85 @@
+.about {
+	position: relative;
+	z-index: 50;
+
+	@include media('md') {
+		margin-top: 100px;
+		margin-bottom: 30px;
+	}
+
+	@include media('lg') {
+		margin-top: 186px;
+		margin-bottom: 30px;
+	}
+
+	&__inner {
+		position: relative;
+	}
+
+	&__bg {
+		position: absolute;
+		top: 100px;
+		left: 50%;
+		transform: translateX(-50%);
+		background: url("#{$rootUrl}about-bg.svg") no-repeat center top;
+		background-size: 100% auto;
+		width: 800px;
+		height: 300px;
+
+		@include media('md') {
+			width: 1200px;
+			height: 400px;
+			top: 170px;
+		}
+
+		@include media('lg') {
+			width: 1920px;
+			height: 690px;
+			top: 190px;
+		}
+	}
+
+	&__cont {
+		position: relative;
+		z-index: 20;
+	}
+
+	&__title {
+		margin: 0 auto 40px;
+		text-align: center;
+		max-width: 847px;
+		font-weight: 300;
+		font-size: 28px;
+		line-height: 1.2;
+		letter-spacing: 1px;
+
+		@include media('md') {
+			font-size: 32px;
+		}
+
+		@include media('lg') {
+			font-size: 65px;
+			margin-bottom: 98px;
+		}
+	}
+
+	&__desc {
+		text-align: center;
+		margin: 0;
+		font-weight: 700;
+		font-size: 18px;
+
+		@include media('lg') {
+			font-size: 25px;
+		}
+	}
+
+	&__benefits {
+		margin-top: 80px;
+
+		@include media('lg') {
+			margin-top: 112px;
+
+		}
+	}
+}

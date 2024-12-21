@@ -1,0 +1,26 @@
+<header class="header">
+	<div class="main-container header__inner">
+		<a href="" class="header__logo">
+			<img src="img/logo.svg" alt="" class="header__logo-img">
+			<span class="header__logo-text">AtomPay</span>
+		</a>
+
+		{% if header.actions %}
+			<div class="header__actions">
+				<button class="btn btn_icon">
+					<svg class="icon square-30_max-xl square-36_xl">
+						<use href="img/sprite.svg#message"></use>
+					</svg>
+				</button>
+
+				<button class="btn btn_icon">
+					<svg class="icon square-30_max-xl square-36_xl">
+						<use href="img/sprite.svg#user"></use>
+					</svg>
+				</button>
+			</div>
+		{% endif %}
+	</div>
+</header>
+
+

@@ -1,0 +1,33 @@
+.check-list {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	row-gap: 15px;
+
+	&__item {
+		position: relative;
+		column-gap: 10px;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		font-weight: 700;
+		font-size: 16px;
+		color: #f2f4f9;
+
+		&:before {
+			display: block;
+			width: 24px;
+			height: 24px;
+			background: url("#{$rootUrl}done-success.svg") no-repeat center;
+			background-size: contain;
+			content: "";
+		}
+	}
+
+	&__item-text {
+		flex: 1;
+	}
+}

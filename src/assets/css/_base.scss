@@ -1,0 +1,55 @@
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  min-width: 320px;
+  margin: auto;
+  font-size: 16px;
+  line-height: 1.59375;
+  font-family: $fontMain;
+  color: #f2f4f9;
+}
+
+button,
+input {
+  font-family: $fontMain;
+}
+
+.page-content {
+  width: 100%;
+  flex: 1;
+}
+
+#main {
+	width: 100%;
+	overflow: clip;
+	min-height: 100vh;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+
+
+.main {
+	background: #0f0d13;
+
+	&_theme_dark {
+		background: radial-gradient(100.02% 100.02% at 50% 100.02%, rgb(15, 13, 19) 0%, rgb(31, 30, 35) 100%);
+
+	}
+}

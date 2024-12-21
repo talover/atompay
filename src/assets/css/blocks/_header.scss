@@ -1,0 +1,66 @@
+.header {
+  //position: sticky;
+  //top: 0;
+  //left: 0;
+  padding-block: 16px;
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+
+
+    @include media('xl') {
+      max-width: none;
+      padding-inline: 40px;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    column-gap: 10px;
+    align-items: center;    
+    text-decoration: none;
+    color: inherit;
+
+    @include media('xl') {
+      column-gap: 21px;
+    }
+  }
+
+  &__logo-img {
+    display: block;
+    width: 100%;
+    width: 30px;
+
+    @include media('xl') {
+      width: 39px;
+    }
+  }
+
+  &__logo-text {
+    flex: 1;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    line-height: 1.25;
+    letter-spacing: 1px;
+    display: block;
+
+      
+    @include media('xl') {
+      font-size: 40px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 10px;
+    margin-left: auto;
+
+    @include media('xl') {
+      column-gap: 16px;
+    }
+  }
+}

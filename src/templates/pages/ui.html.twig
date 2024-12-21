@@ -1,0 +1,47 @@
+{% extends 'layout/layout.html.twig' %}
+{% block title %}markup rig{% endblock %}
+
+{% block page %}
+	<div class="main-container">
+
+		<h2>Icons</h2>
+		{% set icons = [
+			{ name: 'message', icon: 'message', width: 40, height: 40 },
+			{ name: 'telegram', icon: 'telegram', width: 40, height: 40 },
+			{ name: 'user', icon: 'user', width: 40, height: 40 },
+			{ name: 'email', icon: 'email', width: 40, height: 40 },
+			{ name: 'filter', icon: 'filter', width: 40, height: 40 },
+			{ name: 'chart-alt', icon: 'chart-alt', width: 40, height: 40 },
+			{ name: 'done-round', icon: 'done-round', width: 40, height: 40 },
+			{ name: 'info', icon: 'info', width: 40, height: 40 },
+			{ name: 'info-full', icon: 'info-full', width: 40, height: 40 },
+			{ name: 'copy', icon: 'copy', width: 40, height: 40 },
+			{ name: 'protection', icon: 'protection', width: 40, height: 40 },
+		] %}
+
+		{% set columns = 3 %}
+		<table class="w-full">
+			<tr>
+				{% for i in 1..columns %}
+					<th class="text_center">Icon</th>
+					<th class="text_start">Name</th>
+				{% endfor %}
+			</tr>
+			{% for item in icons %}
+				{% if loop.index0 % columns == 0 %}
+					<tr>
+				{% endif %}
+				<td>
+					<svg style="width: {{ item.width }}px; height: {{ item.height }}px;" class="icon mx-auto">
+						<use href="/img/sprite.svg#{{ item.icon }}"></use>
+					</svg>
+				</td>
+				<td>#{{ item.name }}</td>
+
+				{% if loop.index0 % columns == columns - 1 or loop.last %}
+					</tr>
+				{% endif %}
+			{% endfor %}
+		</table>
+	</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title %}markup rig{% endblock %}
+{% block body %}
+	<div id="main" class="main {% if pageBackground is defined and pageBackground == 'dark' %}main_theme_dark{% endif %}">
+		{% include '../partials/header.twig' with {'header': header} %}
+
+		<div class="page-content">
+			{% block page %}
+
+			{% endblock %}
+		</div>
+		{% block beforeFooter %}{% endblock %}
+		{% include '../partials/footer.twig' %}
+	</div>
+{% endblock %}
+
+

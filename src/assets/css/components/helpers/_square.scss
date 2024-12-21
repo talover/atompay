@@ -1,0 +1,30 @@
+@include apply-style(square-auto, (
+		width: auto,
+		height: auto
+));
+
+@include apply-style(square-24, (
+	width: 24px,
+	height: 24px
+));
+
+@include apply-style(square-26, (
+	width: 26px,
+	height: 26px
+));
+
+@include apply-style(square-30, (
+	width: 30px,
+	height: 30px
+));
+
+@include apply-style(square-36, (
+	width: 36px,
+	height: 36px
+));
+
+
+@include apply-style(square-40, (
+		width: 40px,
+		height: 40px
+));

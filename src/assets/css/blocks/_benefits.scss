@@ -1,0 +1,58 @@
+.benefits {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	max-width: 841px;
+	margin-inline: auto;
+	row-gap: 50px;
+
+	@include media('md') {
+		display: grid;
+		gap: 25px;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	&__item {
+		&_full {
+			@include media('md') {
+				grid-column: span 2 / span 2;
+			}
+		}
+	}
+
+	&__title {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		column-gap: 16px;
+		font-weight: 700;
+		font-size: 18px;
+		text-transform: uppercase;
+		margin: 0 0 11px;
+		letter-spacing: 1px;
+
+		@include media('md') {
+			font-size: 25px;
+		}
+	}
+
+	&__title-text {
+		flex: 1;
+	}
+
+	&__icon {
+		width: 30px;
+		height: 30px;
+
+
+		@include media('md') {
+			margin-top: 4px;
+		}
+	}
+
+	&__desc {
+		font-size: 16px;
+		line-height: 1.2;
+		letter-spacing: 0.01em;
+	}
+}

@@ -1,0 +1,169 @@
+$breakpoints: (
+	'sm': 640px,
+	'md': 768px,
+	'lg': 1024px,
+	'xl': 1280px,
+	'2xl': 1536px
+);
+
+$max-breakpoints: (
+	'sm': 639px,
+	'md': 767px,
+	'lg': 1023px,
+	'xl': 1279px,
+	'2xl': 1535px
+);
+
+@mixin media($breakpoint, $type: min) {
+	@if $type == min {
+		@if map-has-key($breakpoints, $breakpoint) {
+			$value: map-get($breakpoints, $breakpoint);
+			@media (min-width: $value) {
+				@content;
+			}
+		} @else {
+			@warn "Breakpoint #{$breakpoint} not found in \$breakpoints map.";
+		}
+	} @else if $type == max {
+		@if map-has-key($max-breakpoints, $breakpoint) {
+			$value: map-get($max-breakpoints, $breakpoint);
+			@media (max-width: $value) {
+				@content;
+			}
+		} @else {
+			@warn "Max breakpoint #{$breakpoint} not found in \$max-breakpoints map.";
+		}
+	}
+}
+
+@mixin media-min-max($breakpoint-min, $breakpoint-max) {
+	$min-value: map-get($breakpoints, $breakpoint-min);
+	$max-value: map-get($max-breakpoints, $breakpoint-max);
+	@media (min-width: $min-value ) and (max-width: $max-value) {
+		@content;
+	}
+}
+
+@mixin responsive-styles($styles) {
+	@each $property, $value in $styles {
+		#{$property}: #{$value} !important;
+	}
+
+	$keys: map-keys($breakpoints);
+	$length: length($keys);
+
+	@for $i from 1 through $length {
+		$breakpoint-start: nth($keys, $i);
+
+		&_#{$breakpoint-start} {
+			@include media($breakpoint-start) {
+				@each $property, $value in $styles {
+					#{$property}: #{$value} !important;
+				}
+			}
+		}
+
+		&_max-#{$breakpoint-start} {
+			@include media($breakpoint-start, max) {
+				@each $property, $value in $styles {
+					#{$property}: #{$value} !important;
+				}
+			}
+		}
+
+		@for $j from $i + 1 through $length {
+			@if $j <= $length { 
+				$breakpoint-end: nth($keys, $j);
+
+				&_#{$breakpoint-start}-#{$breakpoint-end} {
+					@include media-min-max($breakpoint-start, $breakpoint-end) {
+						@each $property, $value in $styles {
+							#{$property}: #{$value} !important;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin margin-spacing($indicator, $value) {
+	@each $side, $property in (
+		''	: 'margin',
+		l: 'margin-left',
+		t: 'margin-top',
+		r: 'margin-right',
+		b: 'margin-bottom',
+		x: 'margin-inline',
+		y: 'margin-block'
+	) {
+		.m#{$side}-#{$indicator} {
+			@include responsive-styles((
+				#{$property}: $value
+			));
+		}
+	}
+}
+
+@mixin padding-spacing($indicator, $value) {
+	@each $side, $property in (
+			''	: 'padding',
+			l: 'padding-left',
+			t: 'padding-top',
+			r: 'padding-right',
+			b: 'padding-bottom',
+			x: 'padding-inline',
+			y: 'padding-block'
+	) {
+		.p#{$side}-#{$indicator} {
+			@include responsive-styles((
+					#{$property}: $value
+			));
+		}
+	}
+}
+
+@mixin apply-style($class, $styles) {
+	.#{$class} {
+		@include responsive-styles($styles);
+	}
+}
+
+/*
+	.example {
+		font-size: 16px;
+
+		@include media('sm') {
+			font-size: 18px;
+		}
+
+		@include media('md', min) {
+			font-size: 20px;
+		}
+
+		// Using max-width
+		@include media('sm', max) {
+			color: blue;
+		}
+	}
+
+	.mb-10 {
+		@include responsive-styles((
+			margin-bottom: 10px
+		));
+	}
+
+	.hidden {
+		@include responsive-styles((
+			display: none
+		));
+	}
+
+	.complex-styles {
+		@include responsive-styles((
+			margin-bottom: 20px,
+			padding: 10px,
+			background-color: red
+		));
+	}
+*/

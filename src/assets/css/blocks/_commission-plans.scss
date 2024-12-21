@@ -1,0 +1,65 @@
+.commission-plans {
+	margin-block: 45px;
+	position: relative;
+	z-index: 20;
+
+	&__row {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		row-gap: 30px;
+	}
+
+	&__item {
+		border-radius: 16px;
+		min-height: 262px;
+		background: radial-gradient(
+						100% 100% at 49.77% 0%,
+						rgba(30, 26, 36, 0.8) 25.75%,
+						rgba(16, 14, 19, 0.8) 85.33%,
+						rgba(15, 13, 19, 0.8) 91.55%
+		);
+		padding: 30px;
+		width: 100%;
+
+		@include media('md') {
+			width: 230px;
+		}
+
+		@include media('lg') {
+			width: 282px;
+			padding: 40px;
+		}
+	}
+
+	&__title {
+		font-weight: 700;
+		font-size: 26px;
+		text-transform: uppercase;
+		text-align: center;
+		color: #fff;
+		margin: 0 0 22px;
+
+		@include media('md') {
+			font-size: 30px;
+		}
+
+		@include media('lg') {
+			font-size: 40px;
+		}
+	}
+
+	&__info {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		row-gap: 20px;
+		font-weight: 600;
+		font-size: 16px;
+		color: #fff;
+
+		p {
+			margin: 0;
+		}
+	}
+}

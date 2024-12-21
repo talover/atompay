@@ -1,0 +1,20 @@
+.footer {
+	margin-block: 30px;
+	position: relative;
+	z-index: 50;
+
+	@include  media('md') {
+		margin-block: 40px;
+	}
+}
+
+.footer-social {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	column-gap: 20px;
+
+	@include  media('md') {
+		column-gap: 33px;
+	}
+}

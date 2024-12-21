@@ -1,0 +1,25 @@
+<section class="hero-tariffs">
+	<div class="main-container hero-tariffs__inner">
+		<div class="hero-tariffs__bg"></div>
+		<div class="hero-tariffs__cont">
+			<div class="hero-tariffs__title">Only ONE commission</div>
+			<div class="hero-tariffs__desc">
+				Our goal is to simplify the process of paying in cryptocurrency,
+				that's why we only charge 2% commission per transaction for
+				new users, but the number can be even lower
+			</div>
+
+			<div class="hero-tariffs__info">
+				<ul class="check-list">
+					{% for item in checkList %}
+						<li class="check-list__item">
+							<span class="check-list__item-text">{{ item }}</span>
+						</li>
+					{% endfor %}
+				</ul>
+
+				<a href="" class="btn btn_white">get start</a>
+			</div>
+		</div>
+	</div>
+</section>

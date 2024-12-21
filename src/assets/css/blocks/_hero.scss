@@ -1,0 +1,172 @@
+.hero {
+	min-height: calc(100vh - 64px);
+	padding-top: 80px;
+	padding-bottom: 40px;
+
+	@include media('md') {
+		margin-top: 40px;
+		padding-top: 0;
+		padding-bottom: 0;
+		min-height: 0;
+	}
+
+	@include media('lg') {
+		margin-top: 50px;
+	}
+
+	&__inner {
+		position: relative;
+	}
+
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		margin-left: -160px;
+		width: 320px;
+		height: 320px;
+		background: url("#{$rootUrl}atom.svg") no-repeat center;
+		background-size: contain;
+		animation: rotate 40s linear infinite;
+
+		@include media('md') {
+			width: 600px;
+			height: 600px;
+			margin-left: -300px;
+		}
+
+		@include media('lg') {
+			width: 770px;
+			height: 839px;
+			margin-left: -385px;
+		}
+	}
+
+	&__cont {
+		position: relative;
+		z-index: 20;
+	}
+
+	&__header {
+		text-align: center;
+		padding-top: 20px;
+		line-height: 1;
+
+		@include media('md') {
+			padding-top: 30px;
+		}
+
+		@include media('lg') {
+			padding-top: 33px;
+		}
+	}
+
+	&__header-desc {
+		font-weight: 600;
+		font-size: 14px;
+		text-transform: uppercase;
+		margin-bottom: 15px;
+
+		@include media('md') {
+			font-size: 16px;
+			margin-bottom: 20px;
+		}
+	}
+
+	&__header-logo {
+		font-weight: 700;
+		font-size: 46px;
+		text-transform: uppercase;
+		margin-bottom: 10px;
+
+		@include media('md') {
+			font-size: 50px;
+		}
+
+		@include media('lg') {
+			font-size: 65px;
+		}
+	}
+
+	&__header-desc-2 {
+		font-weight: 300;
+		font-size: 28px;
+
+		@include media('md') {
+			font-size: 32px;
+		}
+
+		@include media('lg') {
+			font-size: 40px;
+		}
+	}
+
+	&__header-btn {
+		margin-top: 20px;
+	}
+
+	&__info-box {
+		max-width: 840px;
+		margin-inline: auto;
+	}
+
+	&__title {
+		text-align: center;
+		font-weight: 300;
+		font-size: 28px;
+		color: #f2f4f9;
+		line-height: 1.2;
+		margin: 40px 0  10px;
+		letter-spacing: 1px;
+
+		@include media('md') {
+			font-size: 32px;
+			margin-top: 60px;
+		}
+
+		@include media('lg') {
+			margin: 89px 0  2px;
+			font-size: 65px;
+		}
+	}
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.hero-info {
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 25px;
+	row-gap: 20px;
+	align-items: center;
+	flex-direction: column;
+
+	@include media('lg') {
+		flex-direction: row;
+	}
+
+	&__cont {
+		font-weight: 500;
+		font-size: 16px;
+		text-align: center;
+
+		@include media('lg') {
+			flex: 1;
+			font-size: 25px;
+			text-align: left;
+		}
+	}
+
+	&__btn-group {
+		display: flex;
+		justify-content: center;
+		column-gap: 25px;
+	}
+}
